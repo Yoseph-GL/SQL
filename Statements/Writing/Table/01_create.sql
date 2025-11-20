@@ -60,3 +60,13 @@ CREATE TABLE persons6(
     PRIMARY KEY(id),
     CHECK(age>=18)
 );
+
+-- Crea la tabla 'persons7' definiendo un identificador primario y auto-incrementable (id), forzando que los nombres no sean nulos, y validando que la edad siempre sea 18 o mayor
+CREATE TABLE persons7(
+    id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name varchar(100) NOT NULL,
+    age int,
+    email varchar(50),
+    created datetime DEFAULT CURRENT_TIMESTAMP,
+    CHECK(age>=18)
+);
