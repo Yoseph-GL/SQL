@@ -35,3 +35,28 @@ CREATE TABLE persons4(
     UNIQUE(id),
     PRIMARY KEY(id)
 );
+
+-- Crea una tabla 'persons5' con 'id' como Clave Primaria (no nula y única), asegura que 'name' no es nulo, y garantiza que la edad mínima ingresada ('age') siempre debe ser 18 o mayor
+CREATE TABLE persons5(
+    id int NOT NULL,
+    name varchar(100) NOT NULL,
+    age int,
+    email varchar(50),
+    created datetime,
+    UNIQUE(id),
+    PRIMARY KEY(id),
+    CHECK(age>=18)
+);
+
+--DEFAULT: Indica que si, durante una inserción (INSERT INTO)
+--, no proporcionas explícitamente un valor para esta columna, la base de datos no la dejará vacía (NULL), sino que usará un valor por defecto.
+CREATE TABLE persons6(
+    id int NOT NULL,
+    name varchar(100) NOT NULL,
+    age int,
+    email varchar(50),
+    created datetime DEFAULT CURRENT_TIMESTAMP(),
+    UNIQUE(id),
+    PRIMARY KEY(id),
+    CHECK(age>=18)
+);
